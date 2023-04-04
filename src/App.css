@@ -15,9 +15,25 @@
   column-width: 100px;
   height: 900px;
   background-color: black;
+  margin-bottom: 100px;
+}
+.grid-container1 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-width: 100px;
+  height: 900px;
+  background-color: black;
+  margin-bottom: 100px;
 }
 
 .grid-container>div {
+  border: 2px solid gray;
+  padding: 35px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.grid-container1>div {
   border: 2px solid gray;
   padding: 35px;
   font-size: 30px;
@@ -30,6 +46,7 @@
   padding: 20px;
   font-size: 30px;
   color: white;
+  padding-bottom: 100px;
 }
 
 .item1 {

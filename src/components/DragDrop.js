@@ -30,6 +30,27 @@ function DragDrop() {
                 )}
             </div>
 
+            <div sx={{ display: 'flex', justifyContent: 'center' }}>
+                <FormControl sx={{ m: 10, minWidth: 520 }} size="large" variant="standard">
+                    <InputLabel id="template-select-label" sx={{ fontSize: '40px' }}>Select Template</InputLabel>
+                    <Select
+                        sx={{ width: '1000px', height: '100px' }}
+                        labelId="demo-simple-select-label"
+                        id="template-select-label"
+                        value={1}
+                        label="Select Template"
+                    //onChange={handleChange}
+                    >
+                        <MenuItem value="">
+                            <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                </FormControl>
+            </div>
+
             <div class="grid-container">
                 <PictureContainer board={board[0]} addImageToBoard={addImageToBoard} itemNo={1} />
                 <PictureContainer board={board[1]} addImageToBoard={addImageToBoard} itemNo={2} />

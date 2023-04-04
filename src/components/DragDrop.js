@@ -12,6 +12,12 @@ import FormControl from '@mui/material/FormControl';
 function DragDrop() {
 
     const [board, setBoard] = useState([]);
+    const [templateID, setTemplateID] = useState('');
+
+    const handleTemplateChange = (event) => {
+        const getTemplateID = event.target.value;
+        setTemplateID(getTemplateID);
+    }
 
     const addImageToBoard = (id) => {
         const pictureList = PictureList.find((picture) => id === picture.id)
@@ -37,28 +43,27 @@ function DragDrop() {
                         sx={{ width: '1000px', height: '100px' }}
                         labelId="demo-simple-select-label"
                         id="template-select-label"
-                        value={1}
                         label="Select Template"
-                    //onChange={handleChange}
+                        value=''
+                        onChange={(e) => (handleTemplateChange(e))}
                     >
                         <MenuItem value="">
                             <em>None</em>
                         </MenuItem>
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
+                        <MenuItem value={1}>Template 1</MenuItem>
+                        <MenuItem value={2}>Template 2</MenuItem>
                     </Select>
                 </FormControl>
             </div>
 
-            <div class="grid-container">
+            {templateID === 1 && (<div class="grid-container" id='Template 1'>
                 <PictureContainer board={board[0]} addImageToBoard={addImageToBoard} itemNo={1} />
                 <PictureContainer board={board[1]} addImageToBoard={addImageToBoard} itemNo={2} />
                 <PictureContainer board={board[2]} addImageToBoard={addImageToBoard} itemNo={3} />
                 <PictureContainer board={board[3]} addImageToBoard={addImageToBoard} itemNo={4} />
                 <PictureContainer board={board[4]} addImageToBoard={addImageToBoard} itemNo={5} />
-            </div>
-            <div class="grid-container1">
+            </div>)}
+            {templateID === 2 && (<div class="grid-container1" id='Template 2'>
                 <PictureContainer board={board[0]} addImageToBoard={addImageToBoard} />
                 <PictureContainer board={board[1]} addImageToBoard={addImageToBoard} />
                 <PictureContainer board={board[2]} addImageToBoard={addImageToBoard} />
@@ -68,7 +73,7 @@ function DragDrop() {
                 <PictureContainer board={board[6]} addImageToBoard={addImageToBoard} />
                 <PictureContainer board={board[7]} addImageToBoard={addImageToBoard} />
                 <PictureContainer board={board[8]} addImageToBoard={addImageToBoard} />
-            </div>
+            </div>)}
 
         </>
     )
